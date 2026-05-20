@@ -1,232 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Primary Meta Tags -->
-  <meta name="title" content="APEX: A Video-Grounded Interaction Graph for Mapping Multimodal Teacher–Student–AI Orchestration in AI-Enhanced Classrooms">
-  <meta name="description" content="APEX introduces a video-grounded interaction graph to characterize multimodal teacher–student–AI orchestration in AI-enhanced classrooms. Analyzing 62 exemplary AI-integrated classroom videos, we identify three recurring orchestration patterns and reveal a dominant demonstration loop where AI outputs return to teacher control.">
-  <meta name="keywords" content="AI-enhanced classrooms, Human-AI interaction, Multimodal interaction, Classroom orchestration, Ubiquitous learning, Video-based analysis, Teacher-AI collaboration, Interaction graph, Sokrates platform">
-  <meta name="author" content="Anonymous Author(s)">
+  <meta name="title" content="APEX: 视频驱动的交互图谱 - 多模态教师-学生-AI编排框架">
+  <meta name="description" content="APEX知识图谱：可视化AI增强课堂中教师-学生-技术的多模态交互编码体系，支持节点增删改查，完整呈现5个核心维度、10个子维度和26+具体编码。">
+  <meta name="keywords" content="APEX,知识图谱,AI课堂,多模态交互,编码框架,教师-AI协作">
+  <meta name="author" content="APEX研究团队">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
   
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Sokrates Classroom Analytics Lab">
-  <meta property="og:title" content="APEX: A Video-Grounded Interaction Graph for Mapping Multimodal Teacher–Student–AI Orchestration in AI-Enhanced Classrooms">
-  <meta property="og:description" content="APEX introduces a video-grounded interaction graph to characterize multimodal teacher–student–AI orchestration in AI-enhanced classrooms. Analyzing 62 exemplary AI-integrated classroom videos, we identify three recurring orchestration patterns and reveal a dominant demonstration loop where AI outputs return to teacher control.">
-  <meta property="og:url" content="https://your-domain.com/apex-interaction-graph">
+  <meta property="og:title" content="APEX: 视频驱动的交互图谱 - 多模态教师-学生-AI编排框架">
+  <meta property="og:description" content="交互式知识图谱，完整展示APEX编码框架，支持节点增删改查，用于分析AI增强课堂中的互动路径。">
   <meta property="og:image" content="https://your-domain.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="APEX: Video-Grounded Interaction Graph for Teacher-Student-AI Orchestration">
-  <meta property="article:published_time" content="2025-01-15T00:00:00.000Z">
-  <meta property="article:author" content="Anonymous Author(s)">
-  <meta property="article:section" content="Human-Centered Computing">
-  <meta property="article:tag" content="AI-enhanced classrooms">
-  <meta property="article:tag" content="Multimodal interaction">
-  <meta property="article:tag" content="Classroom orchestration">
-
-  <!-- Twitter -->
+  
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@YourLabHandle">
-  <meta name="twitter:creator" content="@AuthorHandle">
-  <meta name="twitter:title" content="APEX: A Video-Grounded Interaction Graph for Mapping Multimodal Teacher–Student–AI Orchestration in AI-Enhanced Classrooms">
-  <meta name="twitter:description" content="APEX introduces a video-grounded interaction graph to characterize multimodal teacher–student–AI orchestration in AI-enhanced classrooms, identifying three recurring orchestration patterns from 62 exemplary cases.">
-  <meta name="twitter:image" content="https://your-domain.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="APEX Interaction Graph Overview">
-
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="APEX: A Video-Grounded Interaction Graph for Mapping Multimodal Teacher–Student–AI Orchestration in AI-Enhanced Classrooms">
-  <meta name="citation_author" content="Anonymous, Author">
-  <meta name="citation_publication_date" content="2025">
-  <meta name="citation_conference_title" content="ACM CHI Conference on Human Factors in Computing Systems">
-  <meta name="citation_pdf_url" content="https://your-domain.com/static/pdfs/apex_paper.pdf">
+  <meta name="twitter:title" content="APEX: 交互图谱编码框架">
   
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>APEX 知识图谱 | 教师-学生-AI 多模态编码框架</title>
   
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-  <title>APEX: Video-Grounded Interaction Graph for Teacher–Student–AI Orchestration</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Scholarly Article -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "APEX: A Video-Grounded Interaction Graph for Mapping Multimodal Teacher–Student–AI Orchestration in AI-Enhanced Classrooms",
-    "description": "APEX introduces a video-grounded interaction graph to characterize multimodal teacher–student–AI orchestration in AI-enhanced classrooms. Analyzing 62 exemplary AI-integrated classroom videos from the Sokrates platform, we coded 10,552 multimodal interaction events and identified three recurring orchestration patterns: AI-mediated structured teaching, teacher lecturing with a digital whiteboard, and teacher-centered dynamic demonstration.",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "Anonymous Author",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "Sokrates Classroom Analytics Lab"
-        }
-      }
-    ],
-    "datePublished": "2025-01-15",
-    "publisher": {
-      "@type": "Organization",
-      "name": "ACM CHI 2025"
-    },
-    "url": "https://your-domain.com/apex-interaction-graph",
-    "image": "https://your-domain.com/static/images/social_preview.png",
-    "keywords": ["AI-enhanced classrooms", "Human-AI interaction", "Multimodal interaction", "Classroom orchestration", "Ubiquitous learning", "Video-based analysis", "Teacher-AI collaboration", "Interaction graph"],
-    "abstract": "Artificial intelligence (AI) is increasingly entering in-person classrooms as a visible participant in teaching activities, yet we still lack a systematic language for describing how teachers, students, and AI systems interact through multimodal classroom practice. This paper presents APEX, a video-grounded interaction graph for characterizing multimodal teacher–student–AI orchestration in AI-enhanced classrooms. We analyzed 62 exemplary AI-integrated classroom videos from the Sokrates platform and coded 10,552 multimodal interaction events involving teacher behaviors, student participation, and AI/technology outputs. Using K-Means clustering, transition-matrix-based sequence analysis, and descriptive analysis of AI-initiated events, we identified three recurring orchestration patterns: AI-mediated structured teaching, teacher lecturing with a digital whiteboard, and teacher-centered dynamic demonstration. Our findings reveal a 'demonstration loop' in which 74% of the cases remained organized around a T-Tech-T pathway, where AI outputs returned almost immediately to teacher control. In contrast, only the AI-mediated pattern exhibited a more interactive T-S-Tech pathway, with AI functioning as a multimodal collaborator. APEX contributes a reusable coding framework and living online artifact for tracking how AI is enacted in frontline classroom practice and for informing future classroom AI design.",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/"
-  }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Sokrates Classroom Analytics Lab",
-    "url": "https://your-institution-website.com",
-    "logo": "https://your-domain.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YourLabHandle",
-      "https://github.com/YourLab/apex-interaction-graph"
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Vis.js 网络库 -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+  <style>
+    /* 自定义样式 */
+    #knowledge-graph-container {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background-color: #fafaf9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .graph-toolbar {
+      background: white;
+      border-radius: 16px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .node-info-panel {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 1.25rem;
+      height: fit-content;
+      border-left: 4px solid #2563eb;
+    }
+    .node-info-panel h4 {
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .button-group .button {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .search-highlight {
+      background-color: #fef08a;
+      transition: all 0.2s;
+    }
+    .legend-badge {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .legend-text {
+      font-size: 0.75rem;
+      margin-right: 1rem;
+    }
+    .toast-notify {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e293b;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 32px;
+      font-size: 0.85rem;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+<button class="scroll-to-top" onclick="scrollToTop()" title="回到顶部" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <a href="https://arxiv.org/abs/2401.12345" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Classroom AI Orchestration Framework (CAIO)</h5>
-            <p>Analyzing real-time multimodal feedback loops between teachers and intelligent tutors.</p>
-            <span class="work-venue">CSCW 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/2312.09876" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Video-Based Interaction Mining for Collaborative Learning</h5>
-            <p>Using graph neural networks to uncover hidden participation structures in small-group learning.</p>
-            <span class="work-venue">ICLR 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/2305.11223" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Teacher-AI Joint Decision Making</h5>
-            <p>An ethnographic study of AI dashboards in K-12 mathematics classrooms.</p>
-            <span class="work-venue">CHI 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <main id="main-content">
+<main id="main-content">
+  <!-- Hero 标题区 -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">APEX: A Video-Grounded Interaction Graph for Mapping Multimodal Teacher–Student–AI Orchestration in AI-Enhanced Classrooms</h1>
+            <h1 class="title is-1 publication-title">APEX: 视频驱动的交互图谱<br><small style="font-size: 1.75rem;">多模态教师–学生–AI 编排编码框架</small></h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="#" target="_blank">Anonymous Author(s)</a><sup>*</sup>
-              </span>
-            </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Sokrates Classroom Analytics Lab<br>ACM CHI 2025 (In Press)</span>
-              <span class="eql-cntrb"><small><br><sup>*</sup>Anonymous submission for double-blind review</small></span>
+              <span class="author-block">APEX 研究团队 · 智能教育分析实验室</span>
             </div>
             <div class="column has-text-centered">
               <div class="publication-links">
-                <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2501.APEX.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="static/pdfs/supplementary_material.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Supplementary</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://github.com/YourLab/apex-interaction-graph" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code & Data</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2501.APEX" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
+                <span class="link-block"><a href="#" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>论文</span></a></span>
+                <span class="link-block"><a href="#" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>代码</span></a></span>
+                <span class="link-block"><a href="#" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span></a></span>
               </div>
             </div>
           </div>
@@ -235,230 +118,399 @@
     </div>
   </section>
 
-  <!-- Teaser video / Overview -->
-  <section class="hero teaser">
+  <!-- ================= 知识图谱核心区域 (替换原视频区域) ================= -->
+  <section class="section">
     <div class="container is-max-desktop">
-      <div class="hero-body">
-        <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-          <source src="static/videos/banner_video.mp4" type="video/mp4">
-        </video>
-        <h2 class="subtitle has-text-centered">
-          APEX encodes teacher, student, and AI actions into a time-anchored interaction graph. The video illustrates how multimodal events (speech, gesture, screen outputs) are mapped to nodes and edges, revealing orchestration patterns such as the T-Tech-T “demonstration loop” and the more interactive T-S-Tech pathway.
-        </h2>
+      <div class="columns is-variable is-8">
+        <!-- 左侧图谱画布 -->
+        <div class="column is-8">
+          <div class="box" style="padding: 0.5rem; background: #ffffff;">
+            <h2 class="title is-4" style="margin: 0.5rem 0 0 0.5rem;">
+              <i class="fas fa-project-diagram"></i> APEX 编码框架知识图谱
+              <span class="tag is-info is-light" style="margin-left: 12px;">支持节点增删改查</span>
+            </h2>
+            <div id="knowledge-graph-container"></div>
+            <div class="level" style="margin-top: 10px; padding: 0 8px;">
+              <div class="level-left">
+                <div class="level-item"><span class="legend-badge" style="background: #3b82f6;"></span><span class="legend-text">维度</span></div>
+                <div class="level-item"><span class="legend-badge" style="background: #10b981;"></span><span class="legend-text">子维度</span></div>
+                <div class="level-item"><span class="legend-badge" style="background: #f59e0b;"></span><span class="legend-text">编码/节点</span></div>
+              </div>
+              <div class="level-right">
+                <span class="icon-text"><i class="fas fa-mouse-pointer"></i> 点击节点查看详情/编辑</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧操作面板：增删改查 & 信息 -->
+        <div class="column is-4">
+          <div class="node-info-panel">
+            <h4><i class="fas fa-info-circle"></i> 当前选中节点</h4>
+            <div id="selected-node-detail">
+              <p class="has-text-grey">尚未选中任何节点，点击图谱中的节点进行管理。</p>
+            </div>
+            <hr>
+            <div class="field">
+              <label class="label"><i class="fas fa-search"></i> 搜索节点 (标签/ID)</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" id="search-input" placeholder="输入关键词高亮节点">
+                <span class="icon is-left"><i class="fas fa-search"></i></span>
+              </div>
+              <button class="button is-small is-link mt-2" id="clear-search-btn"><i class="fas fa-eraser"></i> 清除高亮</button>
+            </div>
+            <hr>
+            <div class="buttons button-group">
+              <button class="button is-success is-small" id="add-subnode-btn" disabled><i class="fas fa-plus-circle"></i> 添加子节点</button>
+              <button class="button is-warning is-small" id="edit-node-btn" disabled><i class="fas fa-edit"></i> 编辑名称</button>
+              <button class="button is-danger is-small" id="delete-node-btn" disabled><i class="fas fa-trash-alt"></i> 删除节点</button>
+            </div>
+            <p class="help is-size-7">注：维度/子维度核心节点不可删除，新增的编码节点可自由管理。</p>
+            <hr>
+            <div class="content is-small">
+              <strong><i class="fas fa-cube"></i> APEX 框架统计</strong><br>
+              <span id="stats-summary">5个维度 · 10+子维度 · 26+编码</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Abstract + CCS Concepts + Keywords -->
+  <!-- Abstract & CCS 区域 (保留) -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
+          <h2 class="title is-3">摘要</h2>
           <div class="content has-text-justified">
-            <p>Artificial intelligence (AI) is increasingly entering in-person classrooms as a visible participant in teaching activities, yet we still lack a systematic language for describing how teachers, students, and AI systems interact through multimodal classroom practice. This paper presents APEX, a video-grounded interaction graph for characterizing multimodal teacher–student–AI orchestration in AI-enhanced classrooms. We analyzed 62 exemplary AI-integrated classroom videos from the Sokrates platform and coded 10,552 multimodal interaction events involving teacher behaviors, student participation, and AI/technology outputs. Using K-Means clustering, transition-matrix-based sequence analysis, and descriptive analysis of AI-initiated events, we identified three recurring orchestration patterns: AI-mediated structured teaching, teacher lecturing with a digital whiteboard, and teacher-centered dynamic demonstration. Our findings reveal a “demonstration loop” in which 74% of the cases remained organized around a T-Tech-T pathway, where AI outputs returned almost immediately to teacher control. In contrast, only the AI-mediated pattern exhibited a more interactive T-S-Tech pathway, with AI functioning as a multimodal collaborator. APEX contributes a reusable coding framework and living online artifact for tracking how AI is enacted in frontline classroom practice and for informing future classroom AI design.</p>
+            <p>人工智能正以可见的参与角色进入实体课堂，但我们仍然缺乏系统性的语言来描述教师、学生和AI系统如何通过多模态课堂实践进行交互。本文提出APEX——一个基于视频的交互图谱，用于刻画AI增强课堂中的多模态教师-学生-AI编排。我们分析了Sokrates平台的62个典型的AI融合课堂视频，编码了10,552个多模态交互事件。通过K-Means聚类、转移矩阵序列分析以及AI启动事件的描述性分析，我们识别出三种反复出现的编排模式：AI介导的结构化教学、教师主导的数字白板教学以及教师中心的动态演示。研究发现一个“演示回路”：74%的案例围绕T-Tech-T路径组织，AI输出几乎立即返回教师控制。只有AI介导的模式展现出更具交互性的T-S-Tech路径，AI作为多模态协作者。APEX贡献了可复用的编码框架与活态在线构件，用于追踪AI在一线课堂实践中的实现方式，并为未来课堂AI设计提供启示。</p>
           </div>
-        </div>
-      </div>
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <div class="content">
-            <h3 class="title is-5" style="margin-top: 1.5rem;">CCS Concepts</h3>
-            <p>• <strong>Human-centered computing</strong> → Empirical studies in ubiquitous and mobile computing; HCI design and evaluation methods; User studies.</p>
-            <h3 class="title is-5" style="margin-top: 1rem;">Additional Key Words and Phrases</h3>
-            <p>AI-enhanced classrooms, Human-AI interaction, Multimodal interaction, Classroom orchestration, Ubiquitous learning, Video-based analysis, Teacher-AI collaboration, Interaction graph, Sokrates platform.</p>
+          <div class="content has-text-left">
+            <h4>CCS Concepts</h4>
+            <p>• Human-centered computing → 普适与移动计算中的实证研究；HCI设计评估方法；用户研究。</p>
+            <p><strong>关键词：</strong> AI增强课堂 · 人机交互 · 多模态交互 · 课堂编排 · 泛在学习 · 基于视频的分析 · 教师-AI协作 · 交互图谱</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Image carousel: APEX interaction graph exemplars -->
+  <!-- 图表示例轮播 (保留原有图片展示) -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <img src="static/images/carousel1.jpg" alt="APEX interaction graph overview of T-Tech-T loop" loading="lazy"/>
-            <h2 class="subtitle has-text-centered">
-              <strong>Figure 1:</strong> APEX interaction graph illustrating the dominant T-Tech-T pathway (teacher → technology → teacher), capturing the “demonstration loop” observed in 74% of cases.
-            </h2>
-          </div>
-          <div class="item">
-            <img src="static/images/carousel2.jpg" alt="AI-mediated structured teaching pattern" loading="lazy"/>
-            <h2 class="subtitle has-text-centered">
-              <strong>Figure 2:</strong> AI-mediated structured teaching pattern: a T-S-Tech sequence where students interact directly with AI outputs, enabling multimodal collaboration.
-            </h2>
-          </div>
-          <div class="item">
-            <img src="static/images/carousel3.jpg" alt="Teacher lecturing with digital whiteboard pattern" loading="lazy"/>
-            <h2 class="subtitle has-text-centered">
-              <strong>Figure 3:</strong> Teacher lecturing with a digital whiteboard: heavy teacher-to-tech interaction but limited student-AI engagement.
-            </h2>
-          </div>
-          <div class="item">
-            <img src="static/images/carousel4.jpg" alt="Transition matrix heatmap of orchestration states" loading="lazy"/>
-            <h2 class="subtitle has-text-centered">
-              <strong>Figure 4:</strong> Transition matrix heatmap showing sequential probabilities between teacher (T), student (S), and technology/AI (Tech) states across 62 classrooms.
-            </h2>
-          </div>
+          <div class="item"><img src="static/images/carousel1.jpg" alt="T-Tech-T loop" loading="lazy"/><h2 class="subtitle has-text-centered">图1: T-Tech-T 演示回路</h2></div>
+          <div class="item"><img src="static/images/carousel2.jpg" alt="T-S-Tech 路径" loading="lazy"/><h2 class="subtitle has-text-centered">图2: T-S-Tech 协作路径</h2></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Youtube video: Presentation of APEX framework -->
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Video Presentation</h2>
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <div class="publication-video">
-              <!-- Replace with actual YouTube ID for APEX presentation -->
-              <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <p class="has-text-centered" style="margin-top: 1rem;">Overview of APEX coding scheme, interaction graph construction, and three orchestration patterns.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video carousel: Classroom excerpts showcasing different patterns -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Classroom Pattern Examples</h2>
-        <div id="video-carousel" class="carousel results-carousel">
-          <div class="item item-video1">
-            <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-              <source src="static/videos/carousel1.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">AI-mediated structured teaching: Students respond to AI-generated prompts.</h2>
-          </div>
-          <div class="item item-video2">
-            <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-              <source src="static/videos/carousel2.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Teacher lecturing with digital whiteboard: High teacher-tech interaction.</h2>
-          </div>
-          <div class="item item-video3">
-            <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-              <source src="static/videos/carousel3.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Teacher-centered dynamic demonstration: Real-time AI visualizations.</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Poster / Living Artifact -->
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title">APEX Living Artifact & Poster</h2>
-        <p class="subtitle is-6">An interactive web-based coding tool and interactive graph explorer (available online).</p>
-        <iframe src="static/pdfs/sample.pdf" width="100%" height="550" title="APEX Poster PDF"></iframe>
-        <p class="has-text-centered" style="margin-top: 1rem;">The APEX framework is maintained as a living online artifact: <a href="#">https://apex-classroom-lab.github.io</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BibTeX citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@inproceedings{apex2025,
-  title={APEX: A Video-Grounded Interaction Graph for Mapping Multimodal Teacher–Student–AI Orchestration in AI-Enhanced Classrooms},
-  author={Anonymous Author(s)},
-  booktitle={Proceedings of the ACM CHI Conference on Human Factors in Computing Systems},
-  year={2025},
-  address={Yokohama, Japan},
-  publisher={ACM},
-  doi={10.1145/xxxxxx.xxxxxx},
-  url={https://your-domain.com/apex-interaction-graph},
-  keywords={AI-enhanced classrooms, Human-AI interaction, Multimodal interaction, Classroom orchestration}
-}</code></pre>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> 
-              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-            <p class="has-text-centered">
-              <strong>APEX</strong> — A living artifact for analyzing AI orchestration in classrooms. Contact: <a href="mailto:apex@example.com">apex@example.com</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="container"><div class="content has-text-centered"><p>APEX 知识图谱 | 基于 APEX 编码框架 (表1 & 图1) 实现，支持动态管理节点。</p></div></div>
   </footer>
+</main>
 
-  <script>
-    // Simple scroll-to-top functionality
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+<div id="toast-msg" class="toast-notify"></div>
 
-    // More works dropdown toggle
-    function toggleMoreWorks() {
-      const dropdown = document.getElementById('moreWorksDropdown');
-      if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-      } else {
-        dropdown.classList.add('show');
-      }
+<script>
+  // 定义APEX完整编码数据 (基于表1、图1: 5维度 + 子维度 + 26+ 编码)
+  // 构建 nodes 和 edges 的初始结构
+  let nodesArray = [];
+  let edgesArray = [];
+
+  // 辅助生成唯一ID
+  let nextId = 500;
+
+  // 根节点
+  const rootId = "root_apex";
+  // 维度节点
+  const dims = {
+    context: { id: "dim_context", label: "Context 维度", level: "dimension", fullName: "上下文维度", group: "dimension" },
+    teacher: { id: "dim_teacher", label: "Teacher 维度", level: "dimension", group: "dimension" },
+    student: { id: "dim_student", label: "Student 维度", level: "dimension", group: "dimension" },
+    technology: { id: "dim_technology", label: "Technology 维度", level: "dimension", group: "dimension" },
+    pathway: { id: "dim_pathway", label: "Pathway 维度", level: "dimension", group: "dimension" }
+  };
+
+  // 子维度
+  const subDimensions = [
+    { id: "sub_metadata", label: "教学元数据", parent: "dim_context", group: "subdim", desc: "学科、年级、AI工具" },
+    { id: "sub_intent", label: "教学意图", parent: "dim_context", group: "subdim", desc: "教学目标、活动阶段" },
+    { id: "sub_visual_teacher", label: "视觉行为", parent: "dim_teacher", group: "subdim", desc: "教师手势/表情等" },
+    { id: "sub_verbal_teacher", label: "言语编排", parent: "dim_teacher", group: "subdim", desc: "引导、指令、解释、提问、评估" },
+    { id: "sub_vis_student", label: "视觉/行为参与", parent: "dim_student", group: "subdim", desc: "操作技术/举手/做任务/非言语" },
+    { id: "sub_verbal_student", label: "言语参与", parent: "dim_student", group: "subdim", desc: "提问、产出、回答、回应、讨论" },
+    { id: "sub_vis_tech", label: "视觉输出", parent: "dim_technology", group: "subdim", desc: "动态/静态内容/智能评分/生成/作品收集" },
+    { id: "sub_aud_tech", label: "听觉输出", parent: "dim_technology", group: "subdim", desc: "音效、TTS" },
+    { id: "sub_ai_role", label: "AI教学角色", parent: "dim_pathway", group: "subdim", desc: "提供者/导师/脚手架/评估者/协作者" },
+    { id: "sub_path_pattern", label: "编排路径", parent: "dim_pathway", group: "subdim", desc: "T-Tech-T, T-S-Tech等" }
+  ];
+
+  // 编码节点 (26+)
+  const codeNodes = [
+    // Context 元数据
+    { id: "code_subject", label: "Subject (学科)", parent: "sub_metadata", group: "code", desc: "学科类别" },
+    { id: "code_grade", label: "Grade (年级)", parent: "sub_metadata", group: "code", desc: "年级水平" },
+    { id: "code_aitool", label: "AI Tool (AI工具)", parent: "sub_metadata", group: "code", desc: "所使用的AI系统" },
+    { id: "code_objective", label: "Objective (教学目标)", parent: "sub_intent", group: "code", desc: "课堂学习目标" },
+    { id: "code_phase", label: "Activity/phase (教学活动阶段)", parent: "sub_intent", group: "code", desc: "教学环节" },
+    // Teacher 视觉行为 T1,T2
+    { id: "T1", label: "T1 Action (手势/移动/操作/指示)", parent: "sub_visual_teacher", group: "code", desc: "教师身体动作、设备操作" },
+    { id: "T2", label: "T2 Expression (面部/表情线索)", parent: "sub_visual_teacher", group: "code", desc: "面部表情" },
+    // Teacher 言语编排 T3-T7
+    { id: "T3", label: "T3 Guidance (引导)", parent: "sub_verbal_teacher", group: "code", desc: "引导性话语" },
+    { id: "T4", label: "T4 Instruction (指令)", parent: "sub_verbal_teacher", group: "code", desc: "明确指令" },
+    { id: "T5", label: "T5 Explanation (解释AI输出)", parent: "sub_verbal_teacher", group: "code", desc: "解释AI生成内容" },
+    { id: "T6", label: "T6 Questioning (提问)", parent: "sub_verbal_teacher", group: "code", desc: "向学生或AI提问" },
+    { id: "T7", label: "T7 Evaluation (评估学生)", parent: "sub_verbal_teacher", group: "code", desc: "回应评估" },
+    // Student 视觉参与 S1-S4
+    { id: "S1", label: "S1 Operating technology", parent: "sub_vis_student", group: "code", desc: "操作技术设备" },
+    { id: "S2", label: "S2 Raising hand", parent: "sub_vis_student", group: "code", desc: "举手" },
+    { id: "S3", label: "S3 Doing task", parent: "sub_vis_student", group: "code", desc: "完成任务" },
+    { id: "S4", label: "S4 Nonverbal behavior", parent: "sub_vis_student", group: "code", desc: "观看/倾听/注视" },
+    // Student 言语参与 S5-S9
+    { id: "S5", label: "S5 Questioning (向师/系统)", parent: "sub_verbal_student", group: "code", desc: "提问" },
+    { id: "S6", label: "S6 Output (口头/书面产出)", parent: "sub_verbal_student", group: "code", desc: "表达观点" },
+    { id: "S7", label: "S7 Answering (回答问题)", parent: "sub_verbal_student", group: "code", desc: "回答" },
+    { id: "S8", label: "S8 Responding (简短响应)", parent: "sub_verbal_student", group: "code", desc: "简短回应" },
+    { id: "S9", label: "S9 Discussion (小组讨论)", parent: "sub_verbal_student", group: "code", desc: "生生互动" },
+    // Technology 视觉输出 Tech1-Tech5
+    { id: "Tech1", label: "Tech1 Dynamic content", parent: "sub_vis_tech", group: "code", desc: "动画/模拟" },
+    { id: "Tech2", label: "Tech2 Static content", parent: "sub_vis_tech", group: "code", desc: "文本/静态图" },
+    { id: "Tech3", label: "Tech3 Intelligent scoring", parent: "sub_vis_tech", group: "code", desc: "AI评分反馈" },
+    { id: "Tech4", label: "Tech4 Content generation", parent: "sub_vis_tech", group: "code", desc: "AI生成解释/问题" },
+    { id: "Tech5", label: "Tech5 Work collection", parent: "sub_vis_tech", group: "code", desc: "作品收集展示" },
+    // Technology 听觉输出
+    { id: "Tech6", label: "Tech6 Sound effect (TTS/提示音)", parent: "sub_aud_tech", group: "code", desc: "语音合成/音效" },
+    // Pathway AI角色
+    { id: "role_provider", label: "Provider (提供者)", parent: "sub_ai_role", group: "code", desc: "AI作为信息提供者" },
+    { id: "role_tutor", label: "Tutor (导师)", parent: "sub_ai_role", group: "code", desc: "AI作为导师" },
+    { id: "role_scaffold", label: "Scaffold (脚手架)", parent: "sub_ai_role", group: "code", desc: "AI提供支架" },
+    { id: "role_evaluator", label: "Evaluator (评估者)", parent: "sub_ai_role", group: "code", desc: "AI评估反馈" },
+    { id: "role_collaborator", label: "Collaborator (协同者)", parent: "sub_ai_role", group: "code", desc: "AI作为协作伙伴" },
+    // Pathway 路径模式
+    { id: "path_TTechT", label: "T-Tech-T 回路", parent: "sub_path_pattern", group: "code", desc: "教师发起-技术-教师收回" },
+    { id: "path_TSTech", label: "T-S-Tech 路径", parent: "sub_path_pattern", group: "code", desc: "教师-学生-技术互动" },
+    { id: "path_teacherled", label: "Teacher-led", parent: "sub_path_pattern", group: "code", desc: "教师主导" },
+    { id: "path_studentled", label: "Student-led", parent: "sub_path_pattern", group: "code", desc: "学生主导" },
+    { id: "path_aidriven", label: "AI-driven", parent: "sub_path_pattern", group: "code", desc: "AI驱动" },
+    { id: "path_cocreation", label: "Co-creation", parent: "sub_path_pattern", group: "code", desc: "师生共创" }
+  ];
+
+  // 构建初始节点和边
+  function buildGraphData() {
+    const nodes = [];
+    const edges = [];
+    // 根节点
+    nodes.push({ id: rootId, label: "APEX 编码框架", level: "root", group: "root", title: "基于课堂视频的多模态交互编码体系", font: { size: 18, bold: true } });
+    // 维度节点
+    for (let d of Object.values(dims)) {
+      nodes.push({ id: d.id, label: d.label, group: d.group, title: d.fullName, level: "dimension", shape: "box", color: { background: "#3b82f6", border: "#2563eb", highlight: "#60a5fa" }, font: { color: "white", bold: true } });
+      edges.push({ from: rootId, to: d.id, arrows: "to", color: "#94a3b8", smooth: true });
     }
-    // Close dropdown when clicking outside (optional enhancement)
-    window.onclick = function(event) {
-      const btn = document.querySelector('.more-works-btn');
-      const dropdown = document.getElementById('moreWorksDropdown');
-      if (!btn.contains(event.target) && dropdown && dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-      }
+    // 子维度
+    for (let sub of subDimensions) {
+      nodes.push({ id: sub.id, label: sub.label, group: sub.group, title: sub.desc, level: "subdim", shape: "ellipse", color: { background: "#10b981", border: "#059669" }, font: { color: "white" } });
+      edges.push({ from: sub.parent, to: sub.id, arrows: "to", color: "#a7f3d0" });
+    }
+    // 编码节点
+    for (let code of codeNodes) {
+      nodes.push({ id: code.id, label: code.label, group: code.group, title: code.desc, level: "code", shape: "dot", color: { background: "#f59e0b", border: "#d97706", highlight: "#fbbf24" }, size: 25 });
+      edges.push({ from: code.parent, to: code.id, arrows: "to", color: "#fed7aa" });
+    }
+    return { nodes, edges };
+  }
+
+  let network = null;
+  let allNodesData = null;
+  let allEdgesData = null;
+  let selectedNodeId = null;
+
+  function initNetwork() {
+    const container = document.getElementById('knowledge-graph-container');
+    const data = buildGraphData();
+    allNodesData = new vis.DataSet(data.nodes);
+    allEdgesData = new vis.DataSet(data.edges);
+    const options = {
+      nodes: { shape: 'dot', scaling: { min: 14, max: 32 }, font: { size: 12, face: 'Inter' } },
+      edges: { smooth: { type: 'cubicBezier', roundness: 0.4 }, arrows: { to: { enabled: true, scaleFactor: 0.8 } }, color: '#cbd5e1' },
+      physics: { enabled: true, stabilization: true, solver: 'barnesHut', barnesHut: { gravitationalConstant: -4000, springConstant: 0.001 } },
+      interaction: { hover: true, tooltipDelay: 200, navigationButtons: false },
+      layout: { improvedLayout: true }
     };
-
-    // Copy BibTeX to clipboard
-    function copyBibTeX() {
-      const bibtexCode = document.getElementById('bibtex-code').innerText;
-      navigator.clipboard.writeText(bibtexCode).then(() => {
-        const btn = document.querySelector('.copy-bibtex-btn');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i><span class="copy-text">Copied!</span>';
-        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy: ', err);
-      });
-    }
-
-    // Simple carousel initialization (if bulma-carousel is loaded)
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof bulmaCarousel !== 'undefined') {
-        var carousels = bulmaCarousel.attach('.carousel', {
-          slidesToScroll: 1,
-          slidesToShow: 1,
-          loop: true,
-          autoplay: false,
-          pagination: true,
-          navigation: true
-        });
+    network = new vis.Network(container, { nodes: allNodesData, edges: allEdgesData }, options);
+    
+    network.on("click", function(params) {
+      if (params.nodes.length > 0) {
+        const nodeId = params.nodes[0];
+        selectedNodeId = nodeId;
+        updateInfoPanel(nodeId);
+        enableButtons(true);
+      } else {
+        selectedNodeId = null;
+        updateInfoPanel(null);
+        enableButtons(false);
       }
     });
-  </script>
+    updateStats();
+  }
+
+  function updateInfoPanel(nodeId) {
+    const panelDiv = document.getElementById('selected-node-detail');
+    if (!nodeId) {
+      panelDiv.innerHTML = '<p class="has-text-grey">未选中节点，点击图谱中的节点进行管理。</p>';
+      return;
+    }
+    const node = allNodesData.get(nodeId);
+    if (node) {
+      let nodeType = "编码节点";
+      if (node.group === "dimension") nodeType = "维度节点";
+      else if (node.group === "subdim") nodeType = "子维度节点";
+      else if (node.id === rootId) nodeType = "根节点";
+      panelDiv.innerHTML = `
+        <p><strong>ID:</strong> ${node.id}</p>
+        <p><strong>标签:</strong> ${node.label}</p>
+        <p><strong>类型:</strong> ${nodeType}</p>
+        <p><strong>描述:</strong> ${node.title || "无"}</p>
+        <p class="is-size-7"><i class="fas fa-link"></i> 子节点数量: ${getChildrenCount(nodeId)}</p>
+      `;
+    } else {
+      panelDiv.innerHTML = '<p class="has-text-danger">节点信息异常</p>';
+    }
+  }
+
+  function getChildrenCount(parentId) {
+    let cnt = 0;
+    const edges = allEdgesData.get();
+    edges.forEach(edge => { if (edge.from === parentId) cnt++; });
+    return cnt;
+  }
+
+  function enableButtons(enable) {
+    const addBtn = document.getElementById('add-subnode-btn');
+    const editBtn = document.getElementById('edit-node-btn');
+    const delBtn = document.getElementById('delete-node-btn');
+    if (enable && selectedNodeId) {
+      const node = allNodesData.get(selectedNodeId);
+      const isRootOrProtected = (selectedNodeId === rootId || node?.group === "dimension" || node?.group === "subdim");
+      addBtn.disabled = false;
+      editBtn.disabled = (selectedNodeId === rootId);  // 根节点不可编辑名称
+      delBtn.disabled = isRootOrProtected; // 维度子维度不可删除，编码节点可删
+    } else {
+      addBtn.disabled = true; editBtn.disabled = true; delBtn.disabled = true;
+    }
+  }
+
+  // 添加子节点 (在选中的节点下增加新编码节点)
+  function addSubNode() {
+    if (!selectedNodeId) { showToast("请先选中一个节点", "warning"); return; }
+    const parentNode = allNodesData.get(selectedNodeId);
+    if (!parentNode) return;
+    const newLabel = prompt("请输入新节点的名称(标签)", "新编码");
+    if (!newLabel) return;
+    const newDesc = prompt("节点描述(可选)", "自定义编码节点");
+    const newId = "custom_" + Date.now() + "_" + Math.floor(Math.random() * 10000);
+    const newNode = {
+      id: newId,
+      label: newLabel,
+      group: "code",
+      title: newDesc || "自定义编码",
+      level: "code",
+      shape: "dot",
+      color: { background: "#f59e0b", border: "#d97706" }
+    };
+    allNodesData.add(newNode);
+    allEdgesData.add({ from: selectedNodeId, to: newId, arrows: "to", color: "#fed7aa" });
+    showToast(`已添加子节点: ${newLabel}`, "success");
+    updateStats();
+    updateInfoPanel(selectedNodeId);
+  }
+
+  // 编辑节点名称
+  function editNode() {
+    if (!selectedNodeId) return;
+    const node = allNodesData.get(selectedNodeId);
+    if (!node || selectedNodeId === rootId) { showToast("根节点不能编辑", "error"); return; }
+    const newLabel = prompt("编辑节点标签", node.label);
+    if (newLabel && newLabel.trim() !== "") {
+      allNodesData.update({ id: selectedNodeId, label: newLabel });
+      showToast("节点已更新", "success");
+      updateInfoPanel(selectedNodeId);
+    }
+  }
+
+  function deleteNode() {
+    if (!selectedNodeId) return;
+    const node = allNodesData.get(selectedNodeId);
+    if (!node) return;
+    if (node.group === "dimension" || node.group === "subdim" || node.id === rootId) {
+      showToast("维度/子维度核心结构不可删除", "warning");
+      return;
+    }
+    if (confirm(`确定删除节点 “${node.label}” 及其所有关联边？`)) {
+      const relatedEdges = allEdgesData.get().filter(e => e.from === selectedNodeId || e.to === selectedNodeId);
+      relatedEdges.forEach(e => allEdgesData.remove(e.id));
+      allNodesData.remove(selectedNodeId);
+      selectedNodeId = null;
+      updateInfoPanel(null);
+      enableButtons(false);
+      showToast("节点已删除", "success");
+      updateStats();
+    }
+  }
+
+  // 搜索高亮
+  let currentHighlights = [];
+  function searchNodes() {
+    const keyword = document.getElementById('search-input').value.trim().toLowerCase();
+    if (!keyword) { clearHighlights(); return; }
+    clearHighlights();
+    const nodes = allNodesData.get();
+    const matchedIds = nodes.filter(n => n.label.toLowerCase().includes(keyword) || n.id.toLowerCase().includes(keyword)).map(n => n.id);
+    matchedIds.forEach(id => {
+      const nodeDom = network.getPositions([id]);
+      if (nodeDom) {
+        network.selectNodes([id], false);
+        currentHighlights.push(id);
+      }
+    });
+    if (matchedIds.length > 0) {
+      network.focus(matchedIds[0], { scale: 1.2, animation: true });
+      showToast(`找到 ${matchedIds.length} 个匹配节点`, "info");
+    } else showToast("未找到匹配节点", "info");
+  }
+
+  function clearHighlights() {
+    network.unselectAll();
+    currentHighlights = [];
+  }
+
+  function updateStats() {
+    const totalNodes = allNodesData.get().length;
+    const codesCount = allNodesData.get().filter(n => n.group === "code").length;
+    document.getElementById('stats-summary').innerHTML = `5个维度 · 10子维度 · ${codesCount}个编码节点 · 总计${totalNodes}节点`;
+  }
+
+  function showToast(msg, type="info") {
+    const toast = document.getElementById('toast-msg');
+    toast.textContent = msg;
+    toast.style.opacity = "1";
+    setTimeout(() => { toast.style.opacity = "0"; }, 2000);
+  }
+
+  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+  window.addEventListener('load', () => {
+    initNetwork();
+    document.getElementById('add-subnode-btn').addEventListener('click', addSubNode);
+    document.getElementById('edit-node-btn').addEventListener('click', editNode);
+    document.getElementById('delete-node-btn').addEventListener('click', deleteNode);
+    document.getElementById('search-input').addEventListener('input', searchNodes);
+    document.getElementById('clear-search-btn').addEventListener('click', () => { document.getElementById('search-input').value = ''; clearHighlights(); });
+  });
+</script>
 </body>
 </html>
