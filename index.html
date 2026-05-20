@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Primary Meta Tags -->
-  <meta name="title" content="APEX: 视频驱动的交互图谱 - 多模态教师-学生-AI编排框架">
-  <meta name="description" content="APEX知识图谱：可视化AI增强课堂中教师-学生-技术的多模态交互编码体系，支持节点增删改查，完整呈现5个核心维度、10个子维度和26+具体编码。">
-  <meta name="keywords" content="APEX,知识图谱,AI课堂,多模态交互,编码框架,教师-AI协作">
-  <meta name="author" content="APEX研究团队">
+  <meta name="title" content="APEX: Video-Grounded Interaction Graph for Multimodal Teacher–Student–AI Orchestration">
+  <meta name="description" content="APEX knowledge graph: interactive visualization of the APEX coding framework for teacher-student-AI multimodal orchestration in AI-enhanced classrooms. Supports node CRUD operations.">
+  <meta name="keywords" content="APEX, knowledge graph, AI classroom, multimodal interaction, coding framework, teacher-AI collaboration">
+  <meta name="author" content="APEX Research Team">
   <meta name="robots" content="index, follow">
   
-  <meta property="og:title" content="APEX: 视频驱动的交互图谱 - 多模态教师-学生-AI编排框架">
-  <meta property="og:description" content="交互式知识图谱，完整展示APEX编码框架，支持节点增删改查，用于分析AI增强课堂中的互动路径。">
-  <meta property="og:image" content="https://your-domain.com/static/images/social_preview.png">
+  <meta property="og:title" content="APEX: Video-Grounded Interaction Graph for Multimodal Teacher–Student–AI Orchestration">
+  <meta property="og:description" content="Interactive knowledge graph fully representing the APEX coding scheme (5 dimensions, 10 sub-dimensions, 26+ codes). Supports node add/edit/delete and search.">
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="APEX: 交互图谱编码框架">
+  <meta name="twitter:title" content="APEX Knowledge Graph – Coding Framework">
   
-  <title>APEX 知识图谱 | 教师-学生-AI 多模态编码框架</title>
+  <title>APEX Knowledge Graph | Teacher-Student-AI Multimodal Coding Framework</title>
   
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Vis.js 网络库 -->
+  <!-- Vis.js Network -->
   <script type="text/javascript" src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
   <style>
-    /* 自定义样式 */
     #knowledge-graph-container {
       width: 100%;
       height: 600px;
@@ -57,10 +55,6 @@
       margin-right: 0.5rem;
       margin-bottom: 0.5rem;
     }
-    .search-highlight {
-      background-color: #fef08a;
-      transition: all 0.2s;
-    }
     .legend-badge {
       display: inline-block;
       width: 12px;
@@ -90,25 +84,26 @@
 </head>
 <body>
 
-<button class="scroll-to-top" onclick="scrollToTop()" title="回到顶部" aria-label="Scroll to top">
+<button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
   <i class="fas fa-chevron-up"></i>
 </button>
 
 <main id="main-content">
-  <!-- Hero 标题区 -->
+  <!-- Hero section (without institution/conference line) -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">APEX: 视频驱动的交互图谱<br><small style="font-size: 1.75rem;">多模态教师–学生–AI 编排编码框架</small></h1>
+            <h1 class="title is-1 publication-title">APEX: A Video-Grounded Interaction Graph for Mapping Multimodal Teacher–Student–AI Orchestration in AI-Enhanced Classrooms</h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block">APEX 研究团队 · 智能教育分析实验室</span>
+              <span class="author-block">Anonymous Author(s) for Double-Blind Review</span>
             </div>
+            <!-- The requested line "Sokrates Classroom Analytics Lab / ACM CHI 2025 (In Press)" has been removed -->
             <div class="column has-text-centered">
               <div class="publication-links">
-                <span class="link-block"><a href="#" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>论文</span></a></span>
-                <span class="link-block"><a href="#" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>代码</span></a></span>
+                <span class="link-block"><a href="#" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span>
+                <span class="link-block"><a href="#" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
                 <span class="link-block"><a href="#" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span></a></span>
               </div>
             </div>
@@ -118,58 +113,58 @@
     </div>
   </section>
 
-  <!-- ================= 知识图谱核心区域 (替换原视频区域) ================= -->
+  <!-- ================= Knowledge Graph Core Area (replaces video section) ================= -->
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-variable is-8">
-        <!-- 左侧图谱画布 -->
+        <!-- Left: Graph canvas -->
         <div class="column is-8">
           <div class="box" style="padding: 0.5rem; background: #ffffff;">
             <h2 class="title is-4" style="margin: 0.5rem 0 0 0.5rem;">
-              <i class="fas fa-project-diagram"></i> APEX 编码框架知识图谱
-              <span class="tag is-info is-light" style="margin-left: 12px;">支持节点增删改查</span>
+              <i class="fas fa-project-diagram"></i> APEX Coding Framework – Knowledge Graph
+              <span class="tag is-info is-light" style="margin-left: 12px;">Supports node CRUD</span>
             </h2>
             <div id="knowledge-graph-container"></div>
             <div class="level" style="margin-top: 10px; padding: 0 8px;">
               <div class="level-left">
-                <div class="level-item"><span class="legend-badge" style="background: #3b82f6;"></span><span class="legend-text">维度</span></div>
-                <div class="level-item"><span class="legend-badge" style="background: #10b981;"></span><span class="legend-text">子维度</span></div>
-                <div class="level-item"><span class="legend-badge" style="background: #f59e0b;"></span><span class="legend-text">编码/节点</span></div>
+                <div class="level-item"><span class="legend-badge" style="background: #3b82f6;"></span><span class="legend-text">Dimension</span></div>
+                <div class="level-item"><span class="legend-badge" style="background: #10b981;"></span><span class="legend-text">Sub-dimension</span></div>
+                <div class="level-item"><span class="legend-badge" style="background: #f59e0b;"></span><span class="legend-text">Code Node</span></div>
               </div>
               <div class="level-right">
-                <span class="icon-text"><i class="fas fa-mouse-pointer"></i> 点击节点查看详情/编辑</span>
+                <span class="icon-text"><i class="fas fa-mouse-pointer"></i> Click node to view/edit</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 右侧操作面板：增删改查 & 信息 -->
+        <!-- Right: CRUD and info panel -->
         <div class="column is-4">
           <div class="node-info-panel">
-            <h4><i class="fas fa-info-circle"></i> 当前选中节点</h4>
+            <h4><i class="fas fa-info-circle"></i> Selected Node</h4>
             <div id="selected-node-detail">
-              <p class="has-text-grey">尚未选中任何节点，点击图谱中的节点进行管理。</p>
+              <p class="has-text-grey">No node selected. Click a node in the graph to manage it.</p>
             </div>
             <hr>
             <div class="field">
-              <label class="label"><i class="fas fa-search"></i> 搜索节点 (标签/ID)</label>
+              <label class="label"><i class="fas fa-search"></i> Search nodes (label/ID)</label>
               <div class="control has-icons-left">
-                <input class="input" type="text" id="search-input" placeholder="输入关键词高亮节点">
+                <input class="input" type="text" id="search-input" placeholder="Enter keyword to highlight">
                 <span class="icon is-left"><i class="fas fa-search"></i></span>
               </div>
-              <button class="button is-small is-link mt-2" id="clear-search-btn"><i class="fas fa-eraser"></i> 清除高亮</button>
+              <button class="button is-small is-link mt-2" id="clear-search-btn"><i class="fas fa-eraser"></i> Clear highlight</button>
             </div>
             <hr>
             <div class="buttons button-group">
-              <button class="button is-success is-small" id="add-subnode-btn" disabled><i class="fas fa-plus-circle"></i> 添加子节点</button>
-              <button class="button is-warning is-small" id="edit-node-btn" disabled><i class="fas fa-edit"></i> 编辑名称</button>
-              <button class="button is-danger is-small" id="delete-node-btn" disabled><i class="fas fa-trash-alt"></i> 删除节点</button>
+              <button class="button is-success is-small" id="add-subnode-btn" disabled><i class="fas fa-plus-circle"></i> Add child node</button>
+              <button class="button is-warning is-small" id="edit-node-btn" disabled><i class="fas fa-edit"></i> Edit label</button>
+              <button class="button is-danger is-small" id="delete-node-btn" disabled><i class="fas fa-trash-alt"></i> Delete node</button>
             </div>
-            <p class="help is-size-7">注：维度/子维度核心节点不可删除，新增的编码节点可自由管理。</p>
+            <p class="help is-size-7">Note: Core dimension/sub-dimension nodes are protected. Custom code nodes can be freely managed.</p>
             <hr>
             <div class="content is-small">
-              <strong><i class="fas fa-cube"></i> APEX 框架统计</strong><br>
-              <span id="stats-summary">5个维度 · 10+子维度 · 26+编码</span>
+              <strong><i class="fas fa-cube"></i> APEX Framework Stats</strong><br>
+              <span id="stats-summary">5 Dimensions · 10+ Sub-dimensions · 26+ Codes</span>
             </div>
           </div>
         </div>
@@ -177,157 +172,148 @@
     </div>
   </section>
 
-  <!-- Abstract & CCS 区域 (保留) -->
+  <!-- Abstract & CCS (English) -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">摘要</h2>
+          <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
-            <p>人工智能正以可见的参与角色进入实体课堂，但我们仍然缺乏系统性的语言来描述教师、学生和AI系统如何通过多模态课堂实践进行交互。本文提出APEX——一个基于视频的交互图谱，用于刻画AI增强课堂中的多模态教师-学生-AI编排。我们分析了Sokrates平台的62个典型的AI融合课堂视频，编码了10,552个多模态交互事件。通过K-Means聚类、转移矩阵序列分析以及AI启动事件的描述性分析，我们识别出三种反复出现的编排模式：AI介导的结构化教学、教师主导的数字白板教学以及教师中心的动态演示。研究发现一个“演示回路”：74%的案例围绕T-Tech-T路径组织，AI输出几乎立即返回教师控制。只有AI介导的模式展现出更具交互性的T-S-Tech路径，AI作为多模态协作者。APEX贡献了可复用的编码框架与活态在线构件，用于追踪AI在一线课堂实践中的实现方式，并为未来课堂AI设计提供启示。</p>
+            <p>Artificial intelligence (AI) is increasingly entering in-person classrooms as a visible participant in teaching activities, yet we still lack a systematic language for describing how teachers, students, and AI systems interact through multimodal classroom practice. This paper presents APEX, a video-grounded interaction graph for characterizing multimodal teacher–student–AI orchestration in AI-enhanced classrooms. We analyzed 62 exemplary AI-integrated classroom videos from the Sokrates platform and coded 10,552 multimodal interaction events involving teacher behaviors, student participation, and AI/technology outputs. Using K-Means clustering, transition-matrix-based sequence analysis, and descriptive analysis of AI-initiated events, we identified three recurring orchestration patterns: AI-mediated structured teaching, teacher lecturing with a digital whiteboard, and teacher-centered dynamic demonstration. Our findings reveal a "demonstration loop" in which 74% of the cases remained organized around a T-Tech-T pathway, where AI outputs returned almost immediately to teacher control. In contrast, only the AI-mediated pattern exhibited a more interactive T-S-Tech pathway, with AI functioning as a multimodal collaborator. APEX contributes a reusable coding framework and living online artifact for tracking how AI is enacted in frontline classroom practice and for informing future classroom AI design.</p>
           </div>
           <div class="content has-text-left">
             <h4>CCS Concepts</h4>
-            <p>• Human-centered computing → 普适与移动计算中的实证研究；HCI设计评估方法；用户研究。</p>
-            <p><strong>关键词：</strong> AI增强课堂 · 人机交互 · 多模态交互 · 课堂编排 · 泛在学习 · 基于视频的分析 · 教师-AI协作 · 交互图谱</p>
+            <p>• <strong>Human-centered computing</strong> → Empirical studies in ubiquitous and mobile computing; HCI design and evaluation methods; User studies.</p>
+            <p><strong>Additional Key Words and Phrases:</strong> AI-enhanced classrooms, Human-AI interaction, Multimodal interaction, Classroom orchestration, Ubiquitous learning, Video-based analysis, Teacher-AI collaboration, Interaction graph, Sokrates platform.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 图表示例轮播 (保留原有图片展示) -->
+  <!-- Image carousel (preserved) -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
-          <div class="item"><img src="static/images/carousel1.jpg" alt="T-Tech-T loop" loading="lazy"/><h2 class="subtitle has-text-centered">图1: T-Tech-T 演示回路</h2></div>
-          <div class="item"><img src="static/images/carousel2.jpg" alt="T-S-Tech 路径" loading="lazy"/><h2 class="subtitle has-text-centered">图2: T-S-Tech 协作路径</h2></div>
+          <div class="item"><img src="static/images/carousel1.jpg" alt="T-Tech-T loop" loading="lazy"/><h2 class="subtitle has-text-centered">Figure 1: T-Tech-T demonstration loop</h2></div>
+          <div class="item"><img src="static/images/carousel2.jpg" alt="T-S-Tech pathway" loading="lazy"/><h2 class="subtitle has-text-centered">Figure 2: T-S-Tech collaborative pathway</h2></div>
         </div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container"><div class="content has-text-centered"><p>APEX 知识图谱 | 基于 APEX 编码框架 (表1 & 图1) 实现，支持动态管理节点。</p></div></div>
+    <div class="container"><div class="content has-text-centered"><p>APEX Knowledge Graph | Based on APEX coding scheme (Table 1 & Figure 1). Interactive graph with full CRUD support.</p></div></div>
   </footer>
 </main>
 
 <div id="toast-msg" class="toast-notify"></div>
 
 <script>
-  // 定义APEX完整编码数据 (基于表1、图1: 5维度 + 子维度 + 26+ 编码)
-  // 构建 nodes 和 edges 的初始结构
-  let nodesArray = [];
-  let edgesArray = [];
+  // APEX complete coding data (based on Table 1, Figure 1: 5 dimensions + subdimensions + 26+ codes)
+  let allNodesData = null;
+  let allEdgesData = null;
+  let network = null;
+  let selectedNodeId = null;
 
-  // 辅助生成唯一ID
-  let nextId = 500;
-
-  // 根节点
   const rootId = "root_apex";
-  // 维度节点
+  // Dimension nodes
   const dims = {
-    context: { id: "dim_context", label: "Context 维度", level: "dimension", fullName: "上下文维度", group: "dimension" },
-    teacher: { id: "dim_teacher", label: "Teacher 维度", level: "dimension", group: "dimension" },
-    student: { id: "dim_student", label: "Student 维度", level: "dimension", group: "dimension" },
-    technology: { id: "dim_technology", label: "Technology 维度", level: "dimension", group: "dimension" },
-    pathway: { id: "dim_pathway", label: "Pathway 维度", level: "dimension", group: "dimension" }
+    context: { id: "dim_context", label: "Context Dimension", level: "dimension", fullName: "Context Dimension", group: "dimension" },
+    teacher: { id: "dim_teacher", label: "Teacher Dimension", level: "dimension", group: "dimension" },
+    student: { id: "dim_student", label: "Student Dimension", level: "dimension", group: "dimension" },
+    technology: { id: "dim_technology", label: "Technology Dimension", level: "dimension", group: "dimension" },
+    pathway: { id: "dim_pathway", label: "Pathway Dimension", level: "dimension", group: "dimension" }
   };
 
-  // 子维度
+  // Sub-dimensions
   const subDimensions = [
-    { id: "sub_metadata", label: "教学元数据", parent: "dim_context", group: "subdim", desc: "学科、年级、AI工具" },
-    { id: "sub_intent", label: "教学意图", parent: "dim_context", group: "subdim", desc: "教学目标、活动阶段" },
-    { id: "sub_visual_teacher", label: "视觉行为", parent: "dim_teacher", group: "subdim", desc: "教师手势/表情等" },
-    { id: "sub_verbal_teacher", label: "言语编排", parent: "dim_teacher", group: "subdim", desc: "引导、指令、解释、提问、评估" },
-    { id: "sub_vis_student", label: "视觉/行为参与", parent: "dim_student", group: "subdim", desc: "操作技术/举手/做任务/非言语" },
-    { id: "sub_verbal_student", label: "言语参与", parent: "dim_student", group: "subdim", desc: "提问、产出、回答、回应、讨论" },
-    { id: "sub_vis_tech", label: "视觉输出", parent: "dim_technology", group: "subdim", desc: "动态/静态内容/智能评分/生成/作品收集" },
-    { id: "sub_aud_tech", label: "听觉输出", parent: "dim_technology", group: "subdim", desc: "音效、TTS" },
-    { id: "sub_ai_role", label: "AI教学角色", parent: "dim_pathway", group: "subdim", desc: "提供者/导师/脚手架/评估者/协作者" },
-    { id: "sub_path_pattern", label: "编排路径", parent: "dim_pathway", group: "subdim", desc: "T-Tech-T, T-S-Tech等" }
+    { id: "sub_metadata", label: "Pedagogical Metadata", parent: "dim_context", group: "subdim", desc: "Subject, grade, AI tool" },
+    { id: "sub_intent", label: "Instructional Intent", parent: "dim_context", group: "subdim", desc: "Objective, activity/phase" },
+    { id: "sub_visual_teacher", label: "Visual Behavior (Teacher)", parent: "dim_teacher", group: "subdim", desc: "Gestures, movement, expressions" },
+    { id: "sub_verbal_teacher", label: "Verbal Orchestration (Teacher)", parent: "dim_teacher", group: "subdim", desc: "Guidance, instruction, explanation, questioning, evaluation" },
+    { id: "sub_vis_student", label: "Visual/Behavioral Participation (Student)", parent: "dim_student", group: "subdim", desc: "Operating tech, raising hand, doing task, nonverbal" },
+    { id: "sub_verbal_student", label: "Verbal Participation (Student)", parent: "dim_student", group: "subdim", desc: "Questioning, output, answering, responding, discussion" },
+    { id: "sub_vis_tech", label: "Visual Output (Technology)", parent: "dim_technology", group: "subdim", desc: "Dynamic/static content, scoring, generation, collection" },
+    { id: "sub_aud_tech", label: "Auditory Output (Technology)", parent: "dim_technology", group: "subdim", desc: "Sound effects, TTS" },
+    { id: "sub_ai_role", label: "AI Pedagogical Role", parent: "dim_pathway", group: "subdim", desc: "Provider, Tutor, Scaffold, Evaluator, Collaborator" },
+    { id: "sub_path_pattern", label: "Orchestration Pathway", parent: "dim_pathway", group: "subdim", desc: "T-Tech-T, T-S-Tech, Teacher-led, etc." }
   ];
 
-  // 编码节点 (26+)
+  // Code nodes (26+)
   const codeNodes = [
-    // Context 元数据
-    { id: "code_subject", label: "Subject (学科)", parent: "sub_metadata", group: "code", desc: "学科类别" },
-    { id: "code_grade", label: "Grade (年级)", parent: "sub_metadata", group: "code", desc: "年级水平" },
-    { id: "code_aitool", label: "AI Tool (AI工具)", parent: "sub_metadata", group: "code", desc: "所使用的AI系统" },
-    { id: "code_objective", label: "Objective (教学目标)", parent: "sub_intent", group: "code", desc: "课堂学习目标" },
-    { id: "code_phase", label: "Activity/phase (教学活动阶段)", parent: "sub_intent", group: "code", desc: "教学环节" },
-    // Teacher 视觉行为 T1,T2
-    { id: "T1", label: "T1 Action (手势/移动/操作/指示)", parent: "sub_visual_teacher", group: "code", desc: "教师身体动作、设备操作" },
-    { id: "T2", label: "T2 Expression (面部/表情线索)", parent: "sub_visual_teacher", group: "code", desc: "面部表情" },
-    // Teacher 言语编排 T3-T7
-    { id: "T3", label: "T3 Guidance (引导)", parent: "sub_verbal_teacher", group: "code", desc: "引导性话语" },
-    { id: "T4", label: "T4 Instruction (指令)", parent: "sub_verbal_teacher", group: "code", desc: "明确指令" },
-    { id: "T5", label: "T5 Explanation (解释AI输出)", parent: "sub_verbal_teacher", group: "code", desc: "解释AI生成内容" },
-    { id: "T6", label: "T6 Questioning (提问)", parent: "sub_verbal_teacher", group: "code", desc: "向学生或AI提问" },
-    { id: "T7", label: "T7 Evaluation (评估学生)", parent: "sub_verbal_teacher", group: "code", desc: "回应评估" },
-    // Student 视觉参与 S1-S4
-    { id: "S1", label: "S1 Operating technology", parent: "sub_vis_student", group: "code", desc: "操作技术设备" },
-    { id: "S2", label: "S2 Raising hand", parent: "sub_vis_student", group: "code", desc: "举手" },
-    { id: "S3", label: "S3 Doing task", parent: "sub_vis_student", group: "code", desc: "完成任务" },
-    { id: "S4", label: "S4 Nonverbal behavior", parent: "sub_vis_student", group: "code", desc: "观看/倾听/注视" },
-    // Student 言语参与 S5-S9
-    { id: "S5", label: "S5 Questioning (向师/系统)", parent: "sub_verbal_student", group: "code", desc: "提问" },
-    { id: "S6", label: "S6 Output (口头/书面产出)", parent: "sub_verbal_student", group: "code", desc: "表达观点" },
-    { id: "S7", label: "S7 Answering (回答问题)", parent: "sub_verbal_student", group: "code", desc: "回答" },
-    { id: "S8", label: "S8 Responding (简短响应)", parent: "sub_verbal_student", group: "code", desc: "简短回应" },
-    { id: "S9", label: "S9 Discussion (小组讨论)", parent: "sub_verbal_student", group: "code", desc: "生生互动" },
-    // Technology 视觉输出 Tech1-Tech5
-    { id: "Tech1", label: "Tech1 Dynamic content", parent: "sub_vis_tech", group: "code", desc: "动画/模拟" },
-    { id: "Tech2", label: "Tech2 Static content", parent: "sub_vis_tech", group: "code", desc: "文本/静态图" },
-    { id: "Tech3", label: "Tech3 Intelligent scoring", parent: "sub_vis_tech", group: "code", desc: "AI评分反馈" },
-    { id: "Tech4", label: "Tech4 Content generation", parent: "sub_vis_tech", group: "code", desc: "AI生成解释/问题" },
-    { id: "Tech5", label: "Tech5 Work collection", parent: "sub_vis_tech", group: "code", desc: "作品收集展示" },
-    // Technology 听觉输出
-    { id: "Tech6", label: "Tech6 Sound effect (TTS/提示音)", parent: "sub_aud_tech", group: "code", desc: "语音合成/音效" },
-    // Pathway AI角色
-    { id: "role_provider", label: "Provider (提供者)", parent: "sub_ai_role", group: "code", desc: "AI作为信息提供者" },
-    { id: "role_tutor", label: "Tutor (导师)", parent: "sub_ai_role", group: "code", desc: "AI作为导师" },
-    { id: "role_scaffold", label: "Scaffold (脚手架)", parent: "sub_ai_role", group: "code", desc: "AI提供支架" },
-    { id: "role_evaluator", label: "Evaluator (评估者)", parent: "sub_ai_role", group: "code", desc: "AI评估反馈" },
-    { id: "role_collaborator", label: "Collaborator (协同者)", parent: "sub_ai_role", group: "code", desc: "AI作为协作伙伴" },
-    // Pathway 路径模式
-    { id: "path_TTechT", label: "T-Tech-T 回路", parent: "sub_path_pattern", group: "code", desc: "教师发起-技术-教师收回" },
-    { id: "path_TSTech", label: "T-S-Tech 路径", parent: "sub_path_pattern", group: "code", desc: "教师-学生-技术互动" },
-    { id: "path_teacherled", label: "Teacher-led", parent: "sub_path_pattern", group: "code", desc: "教师主导" },
-    { id: "path_studentled", label: "Student-led", parent: "sub_path_pattern", group: "code", desc: "学生主导" },
-    { id: "path_aidriven", label: "AI-driven", parent: "sub_path_pattern", group: "code", desc: "AI驱动" },
-    { id: "path_cocreation", label: "Co-creation", parent: "sub_path_pattern", group: "code", desc: "师生共创" }
+    // Context metadata
+    { id: "code_subject", label: "Subject", parent: "sub_metadata", group: "code", desc: "Subject area" },
+    { id: "code_grade", label: "Grade", parent: "sub_metadata", group: "code", desc: "Grade level" },
+    { id: "code_aitool", label: "AI Tool", parent: "sub_metadata", group: "code", desc: "Specific AI system used" },
+    { id: "code_objective", label: "Objective", parent: "sub_intent", group: "code", desc: "Learning objective" },
+    { id: "code_phase", label: "Activity/Phase", parent: "sub_intent", group: "code", desc: "Instructional phase" },
+    // Teacher visual
+    { id: "T1", label: "T1 Action (gestures/movement/operation)", parent: "sub_visual_teacher", group: "code", desc: "Teacher physical actions, device operation" },
+    { id: "T2", label: "T2 Expression (facial cues)", parent: "sub_visual_teacher", group: "code", desc: "Facial expressions" },
+    // Teacher verbal
+    { id: "T3", label: "T3 Guidance", parent: "sub_verbal_teacher", group: "code", desc: "Guiding statements" },
+    { id: "T4", label: "T4 Instruction", parent: "sub_verbal_teacher", group: "code", desc: "Direct instructions" },
+    { id: "T5", label: "T5 Explanation (AI output)", parent: "sub_verbal_teacher", group: "code", desc: "Explaining AI-generated content" },
+    { id: "T6", label: "T6 Questioning", parent: "sub_verbal_teacher", group: "code", desc: "Asking questions to students or AI" },
+    { id: "T7", label: "T7 Evaluation", parent: "sub_verbal_teacher", group: "code", desc: "Evaluating student responses" },
+    // Student visual
+    { id: "S1", label: "S1 Operating technology", parent: "sub_vis_student", group: "code", desc: "Using devices/interfaces" },
+    { id: "S2", label: "S2 Raising hand", parent: "sub_vis_student", group: "code", desc: "Hand raising" },
+    { id: "S3", label: "S3 Doing task", parent: "sub_vis_student", group: "code", desc: "Completing learning task" },
+    { id: "S4", label: "S4 Nonverbal behavior", parent: "sub_vis_student", group: "code", desc: "Watching, listening, gaze" },
+    // Student verbal
+    { id: "S5", label: "S5 Questioning (to teacher/system)", parent: "sub_verbal_student", group: "code", desc: "Asking questions" },
+    { id: "S6", label: "S6 Output (oral/written)", parent: "sub_verbal_student", group: "code", desc: "Expressing ideas" },
+    { id: "S7", label: "S7 Answering", parent: "sub_verbal_student", group: "code", desc: "Answering questions" },
+    { id: "S8", label: "S8 Responding (short)", parent: "sub_verbal_student", group: "code", desc: "Brief responses" },
+    { id: "S9", label: "S9 Discussion (peer)", parent: "sub_verbal_student", group: "code", desc: "Group/peer discussion" },
+    // Technology visual
+    { id: "Tech1", label: "Tech1 Dynamic content", parent: "sub_vis_tech", group: "code", desc: "Animations, simulations" },
+    { id: "Tech2", label: "Tech2 Static content", parent: "sub_vis_tech", group: "code", desc: "Text, static images, slides" },
+    { id: "Tech3", label: "Tech3 Intelligent scoring", parent: "sub_vis_tech", group: "code", desc: "AI scoring & feedback" },
+    { id: "Tech4", label: "Tech4 Content generation", parent: "sub_vis_tech", group: "code", desc: "AI-generated explanations/questions" },
+    { id: "Tech5", label: "Tech5 Work collection", parent: "sub_vis_tech", group: "code", desc: "Digital collection of student work" },
+    // Technology auditory
+    { id: "Tech6", label: "Tech6 Sound effect (TTS/tones)", parent: "sub_aud_tech", group: "code", desc: "Speech synthesis, notification sounds" },
+    // AI roles
+    { id: "role_provider", label: "Provider", parent: "sub_ai_role", group: "code", desc: "AI as information provider" },
+    { id: "role_tutor", label: "Tutor", parent: "sub_ai_role", group: "code", desc: "AI as tutor" },
+    { id: "role_scaffold", label: "Scaffold", parent: "sub_ai_role", group: "code", desc: "AI as scaffolding" },
+    { id: "role_evaluator", label: "Evaluator", parent: "sub_ai_role", group: "code", desc: "AI as evaluator" },
+    { id: "role_collaborator", label: "Collaborator", parent: "sub_ai_role", group: "code", desc: "AI as collaborator" },
+    // Pathway patterns
+    { id: "path_TTechT", label: "T-Tech-T loop", parent: "sub_path_pattern", group: "code", desc: "Teacher → Tech → Teacher" },
+    { id: "path_TSTech", label: "T-S-Tech pathway", parent: "sub_path_pattern", group: "code", desc: "Teacher → Student → Tech" },
+    { id: "path_teacherled", label: "Teacher-led", parent: "sub_path_pattern", group: "code", desc: "Teacher dominated" },
+    { id: "path_studentled", label: "Student-led", parent: "sub_path_pattern", group: "code", desc: "Student initiated" },
+    { id: "path_aidriven", label: "AI-driven", parent: "sub_path_pattern", group: "code", desc: "AI initiated" },
+    { id: "path_cocreation", label: "Co-creation", parent: "sub_path_pattern", group: "code", desc: "Teacher-student co-construction" }
   ];
 
-  // 构建初始节点和边
   function buildGraphData() {
     const nodes = [];
     const edges = [];
-    // 根节点
-    nodes.push({ id: rootId, label: "APEX 编码框架", level: "root", group: "root", title: "基于课堂视频的多模态交互编码体系", font: { size: 18, bold: true } });
-    // 维度节点
+    // Root
+    nodes.push({ id: rootId, label: "APEX Coding Framework", level: "root", group: "root", title: "Video-grounded interaction coding for AI-enhanced classrooms", font: { size: 18, bold: true } });
+    // Dimensions
     for (let d of Object.values(dims)) {
       nodes.push({ id: d.id, label: d.label, group: d.group, title: d.fullName, level: "dimension", shape: "box", color: { background: "#3b82f6", border: "#2563eb", highlight: "#60a5fa" }, font: { color: "white", bold: true } });
       edges.push({ from: rootId, to: d.id, arrows: "to", color: "#94a3b8", smooth: true });
     }
-    // 子维度
+    // Sub-dimensions
     for (let sub of subDimensions) {
       nodes.push({ id: sub.id, label: sub.label, group: sub.group, title: sub.desc, level: "subdim", shape: "ellipse", color: { background: "#10b981", border: "#059669" }, font: { color: "white" } });
       edges.push({ from: sub.parent, to: sub.id, arrows: "to", color: "#a7f3d0" });
     }
-    // 编码节点
+    // Code nodes
     for (let code of codeNodes) {
       nodes.push({ id: code.id, label: code.label, group: code.group, title: code.desc, level: "code", shape: "dot", color: { background: "#f59e0b", border: "#d97706", highlight: "#fbbf24" }, size: 25 });
       edges.push({ from: code.parent, to: code.id, arrows: "to", color: "#fed7aa" });
     }
     return { nodes, edges };
   }
-
-  let network = null;
-  let allNodesData = null;
-  let allEdgesData = null;
-  let selectedNodeId = null;
 
   function initNetwork() {
     const container = document.getElementById('knowledge-graph-container');
@@ -361,24 +347,24 @@
   function updateInfoPanel(nodeId) {
     const panelDiv = document.getElementById('selected-node-detail');
     if (!nodeId) {
-      panelDiv.innerHTML = '<p class="has-text-grey">未选中节点，点击图谱中的节点进行管理。</p>';
+      panelDiv.innerHTML = '<p class="has-text-grey">No node selected. Click a node in the graph to manage it.</p>';
       return;
     }
     const node = allNodesData.get(nodeId);
     if (node) {
-      let nodeType = "编码节点";
-      if (node.group === "dimension") nodeType = "维度节点";
-      else if (node.group === "subdim") nodeType = "子维度节点";
-      else if (node.id === rootId) nodeType = "根节点";
+      let nodeType = "Code node";
+      if (node.group === "dimension") nodeType = "Dimension node";
+      else if (node.group === "subdim") nodeType = "Sub-dimension node";
+      else if (node.id === rootId) nodeType = "Root node";
       panelDiv.innerHTML = `
         <p><strong>ID:</strong> ${node.id}</p>
-        <p><strong>标签:</strong> ${node.label}</p>
-        <p><strong>类型:</strong> ${nodeType}</p>
-        <p><strong>描述:</strong> ${node.title || "无"}</p>
-        <p class="is-size-7"><i class="fas fa-link"></i> 子节点数量: ${getChildrenCount(nodeId)}</p>
+        <p><strong>Label:</strong> ${node.label}</p>
+        <p><strong>Type:</strong> ${nodeType}</p>
+        <p><strong>Description:</strong> ${node.title || "None"}</p>
+        <p class="is-size-7"><i class="fas fa-link"></i> Children count: ${getChildrenCount(nodeId)}</p>
       `;
     } else {
-      panelDiv.innerHTML = '<p class="has-text-danger">节点信息异常</p>';
+      panelDiv.innerHTML = '<p class="has-text-danger">Node info error</p>';
     }
   }
 
@@ -395,49 +381,47 @@
     const delBtn = document.getElementById('delete-node-btn');
     if (enable && selectedNodeId) {
       const node = allNodesData.get(selectedNodeId);
-      const isRootOrProtected = (selectedNodeId === rootId || node?.group === "dimension" || node?.group === "subdim");
+      const isProtected = (selectedNodeId === rootId || node?.group === "dimension" || node?.group === "subdim");
       addBtn.disabled = false;
-      editBtn.disabled = (selectedNodeId === rootId);  // 根节点不可编辑名称
-      delBtn.disabled = isRootOrProtected; // 维度子维度不可删除，编码节点可删
+      editBtn.disabled = (selectedNodeId === rootId);
+      delBtn.disabled = isProtected;
     } else {
       addBtn.disabled = true; editBtn.disabled = true; delBtn.disabled = true;
     }
   }
 
-  // 添加子节点 (在选中的节点下增加新编码节点)
   function addSubNode() {
-    if (!selectedNodeId) { showToast("请先选中一个节点", "warning"); return; }
+    if (!selectedNodeId) { showToast("Please select a node first", "warning"); return; }
     const parentNode = allNodesData.get(selectedNodeId);
     if (!parentNode) return;
-    const newLabel = prompt("请输入新节点的名称(标签)", "新编码");
+    const newLabel = prompt("Enter new node label", "New code");
     if (!newLabel) return;
-    const newDesc = prompt("节点描述(可选)", "自定义编码节点");
+    const newDesc = prompt("Node description (optional)", "Custom code node");
     const newId = "custom_" + Date.now() + "_" + Math.floor(Math.random() * 10000);
     const newNode = {
       id: newId,
       label: newLabel,
       group: "code",
-      title: newDesc || "自定义编码",
+      title: newDesc || "Custom code node",
       level: "code",
       shape: "dot",
       color: { background: "#f59e0b", border: "#d97706" }
     };
     allNodesData.add(newNode);
     allEdgesData.add({ from: selectedNodeId, to: newId, arrows: "to", color: "#fed7aa" });
-    showToast(`已添加子节点: ${newLabel}`, "success");
+    showToast(`Added child node: ${newLabel}`, "success");
     updateStats();
     updateInfoPanel(selectedNodeId);
   }
 
-  // 编辑节点名称
   function editNode() {
     if (!selectedNodeId) return;
     const node = allNodesData.get(selectedNodeId);
-    if (!node || selectedNodeId === rootId) { showToast("根节点不能编辑", "error"); return; }
-    const newLabel = prompt("编辑节点标签", node.label);
+    if (!node || selectedNodeId === rootId) { showToast("Root node cannot be edited", "error"); return; }
+    const newLabel = prompt("Edit node label", node.label);
     if (newLabel && newLabel.trim() !== "") {
       allNodesData.update({ id: selectedNodeId, label: newLabel });
-      showToast("节点已更新", "success");
+      showToast("Node updated", "success");
       updateInfoPanel(selectedNodeId);
     }
   }
@@ -447,22 +431,21 @@
     const node = allNodesData.get(selectedNodeId);
     if (!node) return;
     if (node.group === "dimension" || node.group === "subdim" || node.id === rootId) {
-      showToast("维度/子维度核心结构不可删除", "warning");
+      showToast("Core dimension/sub-dimension nodes cannot be deleted", "warning");
       return;
     }
-    if (confirm(`确定删除节点 “${node.label}” 及其所有关联边？`)) {
+    if (confirm(`Delete node "${node.label}" and all its connections?`)) {
       const relatedEdges = allEdgesData.get().filter(e => e.from === selectedNodeId || e.to === selectedNodeId);
       relatedEdges.forEach(e => allEdgesData.remove(e.id));
       allNodesData.remove(selectedNodeId);
       selectedNodeId = null;
       updateInfoPanel(null);
       enableButtons(false);
-      showToast("节点已删除", "success");
+      showToast("Node deleted", "success");
       updateStats();
     }
   }
 
-  // 搜索高亮
   let currentHighlights = [];
   function searchNodes() {
     const keyword = document.getElementById('search-input').value.trim().toLowerCase();
@@ -471,16 +454,13 @@
     const nodes = allNodesData.get();
     const matchedIds = nodes.filter(n => n.label.toLowerCase().includes(keyword) || n.id.toLowerCase().includes(keyword)).map(n => n.id);
     matchedIds.forEach(id => {
-      const nodeDom = network.getPositions([id]);
-      if (nodeDom) {
-        network.selectNodes([id], false);
-        currentHighlights.push(id);
-      }
+      network.selectNodes([id], false);
+      currentHighlights.push(id);
     });
     if (matchedIds.length > 0) {
       network.focus(matchedIds[0], { scale: 1.2, animation: true });
-      showToast(`找到 ${matchedIds.length} 个匹配节点`, "info");
-    } else showToast("未找到匹配节点", "info");
+      showToast(`Found ${matchedIds.length} matching node(s)`, "info");
+    } else showToast("No matches found", "info");
   }
 
   function clearHighlights() {
@@ -491,7 +471,7 @@
   function updateStats() {
     const totalNodes = allNodesData.get().length;
     const codesCount = allNodesData.get().filter(n => n.group === "code").length;
-    document.getElementById('stats-summary').innerHTML = `5个维度 · 10子维度 · ${codesCount}个编码节点 · 总计${totalNodes}节点`;
+    document.getElementById('stats-summary').innerHTML = `5 Dimensions · 10 Sub-dimensions · ${codesCount} Code nodes · Total ${totalNodes} nodes`;
   }
 
   function showToast(msg, type="info") {
